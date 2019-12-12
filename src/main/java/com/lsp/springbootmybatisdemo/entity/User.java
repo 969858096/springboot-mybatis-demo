@@ -18,16 +18,7 @@ public class User implements Serializable {
     private String userName;
     private String passWord;
 
-
-
     public User() {
-    }
-
-    public User(String name, Integer age, String userName, String passWord) {
-        this.name = name;
-        this.age = age;
-        this.userName = userName;
-        this.passWord = passWord;
     }
 
     public User(String id, String name, Integer age, String userName, String passWord) {
@@ -38,19 +29,10 @@ public class User implements Serializable {
         this.passWord = passWord;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
+    public User(String name, Integer age, String userName, String passWord) {
+        this.name = name;
+        this.age = age;
         this.userName = userName;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord(String passWord) {
         this.passWord = passWord;
     }
 
@@ -76,6 +58,22 @@ public class User implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     @Override

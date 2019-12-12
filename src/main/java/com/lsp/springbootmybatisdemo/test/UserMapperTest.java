@@ -46,14 +46,14 @@ public class UserMapperTest {
         }
     }
 
-    @Test
+   /* @Test
     public void add() {
         User user = null;
         for (int i = 0; i < 10; i++) {
             user = new User("李四"+i,10+i,"管理员"+i,"lsp"+i);
-            userMapper.insert(user);
+            userMapper.update(user);
         }
-    }
+    }*/
 
 
     @Test

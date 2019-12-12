@@ -40,11 +40,17 @@
     </insert>
 
     <update id="update" parameterType="com.lsp.springbootmybatisdemo.entity.User" >
+        /*生成UUID ,keyProperty:实体类*/
+        <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
+            select REPLACE(UUID(),'-','')
+        </selectKey>
         UPDATE
         user
         SET
         <if test="name != null">name = #{name},</if>
-        <if test="age != null">age = #{age}</if>
+        <if test="age != null">age = #{age},</if>
+        <if test="userName != null">userName = #{userName},</if>
+        <if test="passWord != null">passWord = #{passWord}</if>
         WHERE
         id = #{id}
     </update>

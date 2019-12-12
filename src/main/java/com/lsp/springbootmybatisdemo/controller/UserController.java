@@ -1,21 +1,33 @@
 package com.lsp.springbootmybatisdemo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONPObject;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.lsp.springbootmybatisdemo.entity.User;
 import com.lsp.springbootmybatisdemo.mapper.UserMapper;
+import com.lsp.springbootmybatisdemo.utils.ReflectUtils;
+import com.mysql.cj.result.Row;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: springboot-mybatis-demo
@@ -40,21 +52,22 @@ public class UserController {
 
     @RequestMapping(value = "runInto")
     public String  runInto(Model model){
-        User user = userMapper.getOne("32f0fa091cc211eabdb300ff77eaefef");
-       /* model.addAttribute("id",user.getId());
-        model.addAttribute("name",user.getName());
-        model.addAttribute("age",user.getAge());
-       model.addAttribute("userName","你好世界");
-       model.addAttribute("passWord","123456");*/
+        User user = userMapper.getOne("c44af1a71cdf11eab17600d8616f83b2");
        model.addAttribute("user",user);
         return "index";
     }
 
     @RequestMapping(value = "save")
-    public String  save(Model model, @Param("id")String id){
-       User user = (User) model.getAttribute("user");
-       userMapper.insert(user);
-        return "保存成功";
+    public String  save(@RequestParam  Map<String,Object> map) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        User user = (User) ReflectUtils.mapToJavaObject( User.class,map);
+        userMapper.update(user);
+        return "success";
     }
+
+    @RequestMapping("/export")
+    public void export(@RequestParam("excelFile") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
 
 }
