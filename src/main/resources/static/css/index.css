@@ -1,0 +1,252 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.father{
+    width: 100%;
+    background-color: gray;
+}
+.son1{
+    cursor: default;
+    width: 70%;
+    height: 150px;
+    text-align: center;
+    font: 50px/150px "微软雅黑"; /*字号，行宽，字体*/
+    letter-spacing: 20px;  /*字体间距*/
+    color: rgb(255,151,156);
+    background-color:rgb(37,41,8);
+    margin: 0 auto;
+}
+.son1 div{
+    width: 33.333%;
+    height: 150px;
+    float: left;
+}
+.son1 img{
+    width: 100%;
+    height: 150px;
+}
+.son2{
+    width: 70%;
+    height: 30px;
+    background-color:rgb(99,206,214);
+    margin: 0 auto;
+    border:1px solid white;
+    border-radius: 10px 10px 10px 10px;
+}
+.son2 div{
+    width: 19.92%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    font: 20px/30px "微软雅黑"; /*字号，行宽，字体*/
+    letter-spacing: 10px;  /*字体间距*/
+    border:0.5px solid white;
+    -moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+    box-shadow: 20px 10px 20px red;
+}
+.son3{
+    margin: 20px auto 0 auto ;
+    width: 70%;
+    height: 320px;
+    background-color: rgb(81,82,64);
+    text-align: center;
+    -moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+    box-shadow: 20px 10px 20px yellowgreen;
+}
+.son3_1_1{
+    width: 100%;
+    height: 96px;
+    background-color:   rgb(177,181,148);
+    box-shadow: 20px 10px 20px yellowgreen;
+}
+.son3_1_1 img{
+    width: 30%;
+    height: 96px;
+    background-color: #fff;
+    float: left;
+}
+.son3_1_1 span{
+    width: 70%;
+    height: 96px;
+    font: 50px/96px "微软雅黑";
+    letter-spacing: 5px;
+    box-shadow: -20px 0px 20px #000000;
+} 
+.son3_1_2{
+    width: 100%;
+    height: 224px;
+    background-color: rgb(177,181,148);
+}
+.son3_1_2 li{
+    margin: auto 0;
+    width: 100%;
+    height:37px;
+    font: 30px/37px "微软雅黑";
+    color:rgb(238,240,216);
+    text-align: left;
+    letter-spacing: 15px;
+    list-style: none;
+    box-shadow: 0 10px 20px #000000;
+}
+.son3_2{
+    border-radius: 35px 15px;
+}
+.son3_2 img{
+    margin: 10px auto;
+    width: 400px;
+    height: 300px;
+}
+.son3_3 .son3_3_1{
+    width: 100%;
+    height: 68px;
+    font: 30px/68px "微软雅黑"; 
+    background-color:rgb(217,213,149);
+    border: 1px solid white;
+    border-radius: 30px 30px 30px 30px;
+
+}
+.idx1{
+    width: 100%;
+    height: 34px;
+    font: 30px/34px "微软雅黑";
+    background-color:rgb(151,121,59);
+    letter-spacing: 10px;
+    border: 1px solid red;
+    border-radius: 30px 30px 30px 30px;
+
+}
+.son3_3 button:focus{
+    outline:#FF33CC dashed thick;
+}
+.geqiang{
+    margin: 0 auto;
+    width: 70%;
+    height:20px;
+    background-color: rgb(131,103,162);
+}
+.son4{
+    margin: 0 auto;
+    width: 70%;
+    height: 320px;
+    background-color: rgb(81,82,64);
+    text-align: center;
+    -moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+    box-shadow: 20px 10px 20px pink;
+}
+.son4_1_1 img{
+    width: 49%;
+    height: 180px;
+    border: 1px ridge red;
+}
+.son4_1_2 img{
+    width: 100%;
+    height: 140px;
+    border: 1px ridge skyblue;
+}
+.son4_2_1{
+    width: 100%;
+    height: 10%;
+    box-shadow:10px 10px 5px coral ;
+}
+.son4_2_1 button{
+    width: 19.1%;
+    height: 100%;
+    background-color: rgb(93,95,89);
+   
+}
+.son4_2_1 button:focus{
+    outline:#00FF00 dashed thick;
+}
+.son4_2_2{
+    width: 100%;
+    height: 60%;
+}
+.son4_2_2 img{
+    width: 100%;
+    height: 100%;
+}
+.son4_2_3{
+    width: 100%;
+    height: 30%;
+    background-color:rgb(37,37,37);
+    margin: 0 auto;
+}
+.son4_2_3 span{
+    width: 100%;
+    height: 20%;
+    color: whitesmoke;
+
+}
+.a{
+    display: flex;
+    justify-content: center
+}
+ .son4_2_3_1 img,.son4_2_3_6 img{
+    float: left;
+    width: 34.9px;
+    height: 70px;
+    border: 1px solid red;
+} 
+.son4_2_3 .idx2 img{
+    float: left;
+    width: 70px;
+    height: 70px;
+    border: 1px solid red;
+}
+
+.son4_3_1 img,.son4_3_3 img{
+    width: 100%;
+    height: 128px;
+    background-color: #fff;
+}
+.son4_3_2 button{
+    width: 40%;
+    height: 64px;
+    font: 40px/50px "微软雅黑";
+    border-radius: 50px;
+    background-color:rgb(123,123,123);
+    box-shadow: -5px 5px 40px blue;
+}
+
+.son4_3_2 button:focus{
+    outline:#FF0033 dashed thick;
+}
+
+
+.son5{
+    margin: 0 auto;
+    width: 70%;
+    height: 75px;
+    background-color: rgb(81,82,64);
+    text-align: center;
+}
+.son3 .idx,.son4 .idx{
+    width: 32%;
+    height: 100%;
+    float: left;
+    background-color: rgb(177,181,148);
+    display: inline-block;
+}
+.son3_2,.son4_2{
+    margin: 0 2%;
+    
+}
+
+div[class*="son"]{
+    cursor: default;
+}
+
+footer{
+    margin: 10px auto;
+    background-image: url(images/8.jpg);
+    width: 70%;
+    height: 55px;
+    text-align: center;
+    font: 30px/40px "微软雅黑";
+    color: cornsilk;
+    letter-spacing: 20px;
+}
+
+
