@@ -33,7 +33,7 @@ public class UserMapperTest {
 
     @Test
     public void deleteById() {
-        int result = userMapper.delete("1");
+        int result = userMapper.deleteById("");
         String a = result == 1 ? "删除成功" : "删除失败";
         System.out.println(a);
     }
@@ -42,11 +42,11 @@ public class UserMapperTest {
     public void deleteAll() {
         List<User> userList = userMapper.getAll();
         for (User user : userList) {
-            userMapper.delete(user.getId());
+            userMapper.deleteById(user.getId());
         }
     }
 
-   /* @Test
+    /*@Test
     public void add() {
         User user = null;
         for (int i = 0; i < 10; i++) {
@@ -58,10 +58,23 @@ public class UserMapperTest {
 
     @Test
     public void update() {
-        User user = userMapper.getOne("fc3f03701c8911eabbcf00ff77eaefef");
+        User user = userMapper.findById("fc3f03701c8911eabbcf00ff77eaefef");
         user.setAge(100);
         user.setName("李世民");
         userMapper.update(user);
+    }
+
+    @Test
+    public void testGetOne() {
+        User user = userMapper.findById("6d9a1be51d4a11eabdb300ff77eaefef");
+        System.out.println(user.getAge());
+        System.out.println(user);
+    }
+
+    @Test
+    public void testFindByName() {
+        User user = userMapper.findByName("阮小八");
+        System.out.println(user);
     }
 
 

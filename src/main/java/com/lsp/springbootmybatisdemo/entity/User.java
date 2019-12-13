@@ -1,7 +1,6 @@
 package com.lsp.springbootmybatisdemo.entity;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 /**
  * @program: springboot-mybatis-demo
@@ -14,26 +13,37 @@ public class User implements Serializable {
 
     private String id;
     private String name;
-    private Integer  age;
+    private Integer age;
     private String userName;
     private String passWord;
+    private Integer phoneNum;
 
     public User() {
     }
 
-    public User(String id, String name, Integer age, String userName, String passWord) {
+    public User(String id, String name, Integer age, String userName, String passWord,Integer phoneNum) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.userName = userName;
         this.passWord = passWord;
+        this.phoneNum = phoneNum;
     }
 
-    public User(String name, Integer age, String userName, String passWord) {
+    public Integer getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(Integer phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public User(String name, Integer age, String userName, String passWord, Integer phoneNum) {
         this.name = name;
         this.age = age;
         this.userName = userName;
         this.passWord = passWord;
+        this.phoneNum = phoneNum;
     }
 
     public String getId() {
@@ -79,9 +89,12 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", phoneNum=" + phoneNum +
                 '}';
     }
 }

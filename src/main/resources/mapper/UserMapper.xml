@@ -8,7 +8,7 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-        id, name, age,userName,passWord
+        *
     </sql>
 
     <select id="getAll" resultMap="BaseResultMap"  >
@@ -17,48 +17,29 @@
         FROM user
     </select>
 
-    <select id="getOne" parameterType="java.lang.String" resultMap="BaseResultMap" >
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM user
-        WHERE id = #{id}
-    </select>
-
-
-
-    <insert id="insert" parameterType="com.lsp.springbootmybatisdemo.entity.User" useGeneratedKeys="true" keyProperty="id">
-        /*生成UUID ,keyProperty:实体类*/
+    <insert id="add" parameterType="com.lsp.springbootmybatisdemo.entity.User" useGeneratedKeys="true" keyProperty="id">
+        /*生成UUID*/
         <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
             select REPLACE(UUID(),'-','')
         </selectKey>
-
         INSERT INTO
         user
-        (id, name, age,userName,passWord)
+        (id, name, age,userName,passWord,phoneNum)
         VALUES
-        (#{id},#{name},#{age},#{userName},#{passWord})
+        (#{id},#{name},#{age},#{userName},#{passWord},#{phoneNum})
     </insert>
 
     <update id="update" parameterType="com.lsp.springbootmybatisdemo.entity.User" >
-        /*生成UUID ,keyProperty:实体类*/
-        <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
-            select REPLACE(UUID(),'-','')
-        </selectKey>
         UPDATE
         user
         SET
         <if test="name != null">name = #{name},</if>
         <if test="age != null">age = #{age},</if>
         <if test="userName != null">userName = #{userName},</if>
-        <if test="passWord != null">passWord = #{passWord}</if>
+        <if test="passWord != null">passWord = #{passWord},</if>
+        <if test="phoneNum != null">phoneNum = #{phoneNum}</if>
         WHERE
         id = #{id}
     </update>
 
-    <delete id="delete" parameterType="java.lang.String" >
-        DELETE FROM
-        user
-        WHERE
-        id =#{id}
-    </delete>
 </mapper>

@@ -6,22 +6,25 @@
 </head>
 <script src="js/jquery.js" type="application/html"></script>
 <script type="application/javascript">
-    $(function () {
-        $("#submit").click(function () {
-            var formdata = $('#form').serialize(); //表单序列化
-            $.ajax({
-                type: 'post',
-                url: 'http://localhost:8888/user/save',
-                data: formdata,
-                dataType: 'json',
-                traditional: true,
-                contentType: 'application/json',
-                success: function (data) {
-
-                },
-            });
-        })
-    })
+    // $(document).ready(function () {
+    //     $("#submit").click(function () {
+    //         var formdata = $('#form').serialize(); //表单序列化
+    //         $.ajax({
+    //             type: 'post',
+    //             url: 'http://localhost:8888/user/save',
+    //             data: formdata,
+    //             dataType: 'json',
+    //             traditional: true,
+    //             contentType: 'application/json',
+    //             success: function (data) {
+    //
+    //             },
+    //         });
+    //     })
+    // })
+    /*var age = '${user.age}';*/
+    var age = '${user.phoneNum}';
+    console.log(age)
 </script>
 <style>
     * {
@@ -44,6 +47,8 @@
             姓名:<input type="text" name="name" value="${user.name}"/>
             <hr>
             年龄:<input type="text" name="age" value="${user.age}"/>
+            <hr>
+            电话:<input type="text" name="phoneNum" value="${user.phoneNum}"/>
             <hr>
             用户名:<input type="text" name="userName" value="${user.userName}"/>
             <hr>

@@ -46,22 +46,27 @@ public class UserController {
 
     @RequestMapping(value = "list")
     @ResponseBody
-    public List list(){
+    public List list() {
         return userMapper.getAll();
     }
 
     @RequestMapping(value = "runInto")
-    public String  runInto(Model model){
-        User user = userMapper.getOne("c44af1a71cdf11eab17600d8616f83b2");
-       model.addAttribute("user",user);
+    public String runInto(Model model) {
+        User user = userMapper.findById("6d9a1be51d4a11eabdb300ff77eaefef");
+        model.addAttribute("user", user);
         return "index";
     }
 
     @RequestMapping(value = "save")
-    public String  save(@RequestParam  Map<String,Object> map) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        User user = (User) ReflectUtils.mapToJavaObject( User.class,map);
-        userMapper.update(user);
-        return "success";
+    public String save(@RequestParam Map<String, Object> map) throws Exception {
+        User user = (User) ReflectUtils.mapToJavaObject(User.class, map);
+        int flag = 0;
+        if(map.containsKey("id") && map.get("id").equals("") ){
+            flag = userMapper.add(user);
+        }else {
+            flag = userMapper.update(user);
+        }
+        return  flag == 1?"success":"failure";
     }
 
     @RequestMapping("/export")
