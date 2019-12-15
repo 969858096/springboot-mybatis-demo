@@ -19,11 +19,11 @@ import java.util.Properties;
 
 @Configuration
 public class MyConfig extends WebMvcConfigurerAdapter {
-    @Override
+    /*@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
         super.addResourceHandlers(registry);
-    }
+    }*/
 
     /*@Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {

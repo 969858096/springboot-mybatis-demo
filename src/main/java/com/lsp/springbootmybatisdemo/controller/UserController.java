@@ -51,20 +51,25 @@ public class UserController {
     }
 
     @RequestMapping(value = "runInto")
-    public String runInto(Model model) {
-        User user = userMapper.findById("6d9a1be51d4a11eabdb300ff77eaefef");
+    public String runInto(Model model,@Param(value = "id") String id) {
+        User user = userMapper.findById(id);
         model.addAttribute("user", user);
         return "index";
     }
 
     @RequestMapping(value = "save")
-    public String save(@RequestParam Map<String, Object> map) throws Exception {
-        User user = (User) ReflectUtils.mapToJavaObject(User.class, map);
+    public String save(@RequestBody User map) throws Exception {
+        /*User user = (User) ReflectUtils.mapToJavaObject(User.class, map);
         int flag = 0;
         if(map.containsKey("id") && map.get("id").equals("") ){
             flag = userMapper.add(user);
         }else {
             flag = userMapper.update(user);
+        }*/
+        int flag = 0;
+        if (map != null){
+            userMapper.add(map);
+            flag = 1;
         }
         return  flag == 1?"success":"failure";
     }
@@ -72,6 +77,17 @@ public class UserController {
     @RequestMapping("/export")
     public void export(@RequestParam("excelFile") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
 
+    }
+
+    @RequestMapping(value = "save1")
+    public String save1(@RequestBody User  user) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+       //JSONObject jsonObject = JSON.parseObject(user);
+        //User user1 = JSON.toJavaObject(jsonObject, User.class);
+        //userMapper.add(user);
+        int a = 0;
+        //User object = (User) ReflectUtils.mapToJavaObject(User.class, user);
+        userMapper.add(user);
+        return "success1";
     }
 
 
