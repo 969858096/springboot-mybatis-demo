@@ -1,4 +1,4 @@
-/*
+
 package com.lsp.springbootmybatisdemo.controller;
 
 import com.alibaba.fastjson.JSON;
@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.lsp.springbootmybatisdemo.entity.User;
 import com.lsp.springbootmybatisdemo.mapper.UserMapper;
 import com.lsp.springbootmybatisdemo.utils.ReflectUtils;
-import com.lsp.springbootmybatisdemo.utils.
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,14 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
-*/
+
 /**
  * @program: springboot-mybatis-demo
  * @description:
  * @author: lsp
  * @create: 2019-12-12 10:54
  * @version:1.0
- **//*
+ **/
 
 @Controller
 @RequestMapping(value = "user")
@@ -74,9 +73,6 @@ public class UserController {
 
     @RequestMapping("/export")
     public void export(@RequestBody MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
-        String filePath = "/home/chenmingjian/Downloads/测试.xlsx";
-        List<Object> objects = com.springboot.utils.excel.ExcelUtil.readLessThan1000Row(filePath);
-        objects.forEach(System.out::println);
 
     }
 
@@ -87,4 +83,4 @@ public class UserController {
 
 
 }
-*/
+
