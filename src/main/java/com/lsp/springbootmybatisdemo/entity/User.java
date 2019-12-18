@@ -1,5 +1,8 @@
 package com.lsp.springbootmybatisdemo.entity;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.metadata.BaseRowModel;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +12,20 @@ import java.io.Serializable;
  * @create: 2019-12-11 16:34
  * @version:1.0
  **/
-public class User implements Serializable {
+public class User extends BaseRowModel implements Serializable {
+
+    /*@ExcelProperty(value = {"个人信息","编号"}, index = 0)
+    private String id;
+    @ExcelProperty(value =  {"个人信息","姓名"}, index = 1)
+    private String name;
+    @ExcelProperty(value =  {"个人信息","年龄"}, index = 2)
+    private Integer age;
+    @ExcelProperty(value = {"账户信息","账号"}, index = 3)
+    private String userName;
+    @ExcelProperty(value = {"账户信息","密码"}, index = 4)
+    private String passWord;
+    @ExcelProperty(value = {"手机号"}, index = 5)
+    private Integer phoneNum;*/
 
     private String id;
     private String name;

@@ -43,7 +43,7 @@ public class ReflectUtils<T> {
                 set.invoke(o,value.toString());
             }
             if (INTEGER_INDEX .equals(StrParamType)){
-                set.invoke(o,new Integer(value.toString()));
+                set.invoke(o, Integer.valueOf(value.toString()));
             }
         }
         return o;
