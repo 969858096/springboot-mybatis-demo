@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Student extends BaseRowModel implements Serializable {
 
-     @ExcelProperty(value = {"编号"}, index = 0)
+    @ExcelProperty(value = {"编号"}, index = 0)
     private String id;
     @ExcelProperty(value = {"姓名"}, index = 1)
     private String name;

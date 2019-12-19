@@ -1,6 +1,7 @@
 package com.lsp.springbootmybatisdemo.mapper;
 
 import com.lsp.springbootmybatisdemo.entity.Student;
+import com.lsp.springbootmybatisdemo.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,7 +23,8 @@ public interface StudentMapper {
 
 
     List<Student> getAll();
-    int add(Student STUDENT);
-    int update(Student STUDENT);
+    int add(Student student);
+    int update(Student student);
+    int bulkInsert(@Param("list") List<Student> list);
 
 }

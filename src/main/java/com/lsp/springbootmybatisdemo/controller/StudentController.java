@@ -1,11 +1,17 @@
 package com.lsp.springbootmybatisdemo.controller;
 
-import com.lsp.springbootmybatisdemo.mapper.StudentMapper;
-import com.lsp.springbootmybatisdemo.utils.ExtelRead;
+
+import com.lsp.springbootmybatisdemo.entity.Student;
+import com.lsp.springbootmybatisdemo.impl.StudentImpl;
+import com.lsp.springbootmybatisdemo.impl.UserImpl;
+import com.lsp.springbootmybatisdemo.utils.ExcelUtils;
+import com.lsp.springbootmybatisdemo.utils.ReflectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,17 +25,44 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    private StudentMapper studentMapper;
+    private StudentImpl studentImpl;
 
-    @RequestMapping(value = "export")
-    public List testExcelExport(){
-        String file = "E:\\soft_project\\excel\\student.xlsx";
-        List<List<String>> lists = ExtelRead.testRead(file);
-        if(lists != null){
-            System.out.println(lists.size());
-        }else{
-            System.out.println("异常");
+    @Autowired
+    private UserImpl userImpl;
+
+    @RequestMapping(value = "chooseExcelFile")
+    public String chooseExcelFile() {
+        return "excel";
+    }
+
+    @RequestMapping(value = "import")
+    public String testExcelExport(@RequestParam(value = "file") MultipartFile file) throws Exception {
+        List<List<Object>> lists = ExcelUtils.ReadExcelIntoDB(file);
+        for (List<Object> list : lists) {
+            Student student = (Student) ReflectUtils.listToJavaObject(Student.class, list);
+            studentImpl.add(student);
         }
-        return lists;
+        return "success";
+    }
+
+    //相对高效的批量插入
+    @RequestMapping(value = "import1")
+    public String testExcelExport1(@RequestParam(value = "file") MultipartFile file) throws Exception {
+        List<List<Object>> lists = ExcelUtils.ReadExcelIntoDB(file);
+        List<Student> listStudent = new ArrayList<>();
+        for (List<Object> list : lists) {
+            Student student = (Student) ReflectUtils.listToJavaObject(Student.class, list);
+            listStudent.add(student);
+        }
+        studentImpl.bulkInsert(listStudent);
+        return "success";
+    }
+
+    //导出一个工作簿
+    @RequestMapping(value = "export")
+    public String exportExcelTest() {
+        String path = "D:\\study\\excel\\test1.xlsx";
+        ExcelUtils.writeDBToExcel(userImpl.getAll(),path);
+        return "success";
     }
 }

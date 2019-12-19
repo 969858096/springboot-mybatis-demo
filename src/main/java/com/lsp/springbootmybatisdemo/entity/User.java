@@ -1,8 +1,13 @@
 package com.lsp.springbootmybatisdemo.entity;
 
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
+import lombok.Builder;
+import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @program: springboot-mybatis-demo
@@ -11,9 +16,11 @@ import java.io.Serializable;
  * @create: 2019-12-11 16:34
  * @version:1.0
  **/
+@Data
+@Builder
 public class User extends BaseRowModel implements Serializable {
 
-    /*@ExcelProperty(value = {"个人信息","编号"}, index = 0)
+    @ExcelProperty(value = {"个人信息","编号"}, index = 0)
     private String id;
     @ExcelProperty(value =  {"个人信息","姓名"}, index = 1)
     private String name;
@@ -24,13 +31,6 @@ public class User extends BaseRowModel implements Serializable {
     @ExcelProperty(value = {"账户信息","密码"}, index = 4)
     private String passWord;
     @ExcelProperty(value = {"手机号"}, index = 5)
-    private Integer phoneNum;*/
-
-    private String id;
-    private String name;
-    private Integer age;
-    private String userName;
-    private String passWord;
     private Integer phoneNum;
 
     public User() {
@@ -112,4 +112,5 @@ public class User extends BaseRowModel implements Serializable {
                 ", phoneNum=" + phoneNum +
                 '}';
     }
+
 }
