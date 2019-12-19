@@ -30,7 +30,7 @@ public class User extends BaseRowModel implements Serializable {
     private String userName;
     @ExcelProperty(value = {"账户信息","密码"}, index = 4)
     private String passWord;
-    @ExcelProperty(value = {"手机号"}, index = 5)
+    @ExcelProperty(value = {"手机号","手机号"}, index = 5)
     private Integer phoneNum;
 
     public User() {

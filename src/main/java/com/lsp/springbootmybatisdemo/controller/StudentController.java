@@ -39,8 +39,13 @@ public class StudentController {
     public String testExcelExport(@RequestParam(value = "file") MultipartFile file) throws Exception {
         List<List<Object>> lists = ExcelUtils.ReadExcelIntoDB(file);
         for (List<Object> list : lists) {
-            Student student = (Student) ReflectUtils.listToJavaObject(Student.class, list);
-            studentImpl.add(student);
+            Object object = ReflectUtils.listToJavaObject(Student.class, list);
+            if (object instanceof Student){
+                Student student1 = (Student)object;
+                studentImpl.add(student1);
+            }else {
+                throw new ClassCastException("类转换异常");
+            }
         }
         return "success";
     }
@@ -61,7 +66,7 @@ public class StudentController {
     //导出一个工作簿
     @RequestMapping(value = "export")
     public String exportExcelTest() {
-        String path = "D:\\study\\excel\\test1.xlsx";
+        String path = "E:\\soft_project\\excel\\test1.xlsx";
         ExcelUtils.writeDBToExcel(userImpl.getAll(),path);
         return "success";
     }
