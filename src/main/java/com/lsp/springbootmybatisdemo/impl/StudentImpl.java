@@ -3,6 +3,8 @@ package com.lsp.springbootmybatisdemo.impl;
 import com.lsp.springbootmybatisdemo.entity.Student;
 import com.lsp.springbootmybatisdemo.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,8 @@ import java.util.List;
 public class StudentImpl implements StudentMapper {
     @Autowired
     private StudentMapper studentMapper;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public Student findById(String id) {
@@ -54,5 +58,17 @@ public class StudentImpl implements StudentMapper {
     @Override
     public int bulkInsert(List<Student> list) {
         return studentMapper.bulkInsert(list);
+    }
+
+    public int jdbcTemplate_Save(Student student){
+        return jdbcTemplate.update("INSERT INTO STUDENT (id,name,age) VALUES(?,?,?)",student.getId(),student.getName(),student.getAge());
+    }
+
+    public int jdbcTemplate_delete(String id){
+        return jdbcTemplate.update("delete from student where id = ?",id);
+    }
+
+    public List<Student> jdbcTemplate_QueryAll(){
+        return jdbcTemplate.query("select * from student",new BeanPropertyRowMapper(Student.class));
     }
 }

@@ -1,5 +1,7 @@
 package com.lsp.springbootmybatisdemo.mapper;
 
+import com.lsp.springbootmybatisdemo.entity.Authority;
+import com.lsp.springbootmybatisdemo.entity.Role;
 import com.lsp.springbootmybatisdemo.entity.User;
 import org.apache.ibatis.annotations.*;
 
@@ -21,5 +23,8 @@ public interface UserMapper {
     List<User> getAll();
     int add(User user);
     int update(User user);
+
+    List<Authority> selectAllAuthorities(String id);
+    List<Role> selectAllRoles(String id);
 
 }

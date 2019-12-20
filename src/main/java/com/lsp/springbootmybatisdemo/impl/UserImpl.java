@@ -1,5 +1,7 @@
 package com.lsp.springbootmybatisdemo.impl;
 
+import com.lsp.springbootmybatisdemo.entity.Authority;
+import com.lsp.springbootmybatisdemo.entity.Role;
 import com.lsp.springbootmybatisdemo.entity.User;
 import com.lsp.springbootmybatisdemo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +51,15 @@ public class UserImpl implements UserMapper {
     @Override
     public int update(User user) {
         return userMapper.update(user);
+    }
+
+    @Override
+    public List<Authority> selectAllAuthorities(String id) {
+        return userMapper.selectAllAuthorities(id);
+    }
+
+    @Override
+    public List<Role> selectAllRoles(String id) {
+        return userMapper.selectAllRoles(id);
     }
 }

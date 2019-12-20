@@ -20,6 +20,16 @@ public class Student extends BaseRowModel implements Serializable {
     @ExcelProperty(value = {"年龄"}, index = 2)
     private Integer age;
 
+    public Student(){
+
+    }
+
+    public Student(String id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
     public String getId() {
         return id;
     }
@@ -44,5 +54,12 @@ public class Student extends BaseRowModel implements Serializable {
         this.age = age;
     }
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

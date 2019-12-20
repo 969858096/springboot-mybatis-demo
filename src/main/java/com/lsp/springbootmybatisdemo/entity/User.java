@@ -16,10 +16,9 @@ import java.util.List;
  * @create: 2019-12-11 16:34
  * @version:1.0
  **/
-@Data
-@Builder
 public class User extends BaseRowModel implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @ExcelProperty(value = {"个人信息","编号"}, index = 0)
     private String id;
     @ExcelProperty(value =  {"个人信息","姓名"}, index = 1)
@@ -32,6 +31,15 @@ public class User extends BaseRowModel implements Serializable {
     private String passWord;
     @ExcelProperty(value = {"手机号","手机号"}, index = 5)
     private Integer phoneNum;
+    private List<Role> rolesList;
+
+    public List<Role> getRolesList() {
+        return rolesList;
+    }
+
+    public void setRolesList(List<Role> rolesList) {
+        this.rolesList = rolesList;
+    }
 
     public User() {
     }
