@@ -13,15 +13,6 @@
         <collection property="authorityList" column="id" javaType="list" select="selectAllAuthorities"></collection>
     </resultMap>
 
-    <!--根据角色ID查找角色拥有的所有权限-->
-    <select id="selectAllAuthorities" resultType="com.lsp.springbootmybatisdemo.entity.Authority" parameterType="java.lang.Integer">
-    select id,name,url  from authority where id in (select role_authority.authorityId from role_authority where role_authority.roleId=#{id})
-    </select>
-
-    <!--根据用户Id查找所有的用户角色-->
-    <select id="selectAllRoles" resultMap="RoleMap" parameterType="java.lang.Integer">
-    select id, name from role where id in (select user_role.roleId from user_role where user_role.userId=#{id})
-    </select>
 
     <sql id="Base_Column_List">
         *

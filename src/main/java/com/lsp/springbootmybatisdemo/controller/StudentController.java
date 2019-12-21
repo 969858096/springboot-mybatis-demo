@@ -63,11 +63,11 @@ public class StudentController {
         return "success";
     }
 
-    //导出一个工作簿
+   /* //导出一个工作簿
     @RequestMapping(value = "export")
     public String exportExcelTest() {
         String path = "E:\\soft_project\\excel\\test1.xlsx";
         ExcelUtils.writeDBToExcel(userImpl.getAll(),path);
         return "success";
-    }
+    }*/
 }

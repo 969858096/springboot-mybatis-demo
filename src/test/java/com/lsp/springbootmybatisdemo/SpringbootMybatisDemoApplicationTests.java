@@ -13,9 +13,9 @@ class SpringbootMybatisDemoApplicationTests {
     @Autowired
     private UserMapper userMapper;
 
-    @Test
+   /* @Test
     List contextLoads() {
        return userMapper.getAll();
-    }
+    }*/
 
 }

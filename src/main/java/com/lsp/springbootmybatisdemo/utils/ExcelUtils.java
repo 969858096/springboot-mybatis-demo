@@ -3,16 +3,14 @@ package com.lsp.springbootmybatisdemo.utils;
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import com.lsp.springbootmybatisdemo.entity.Student;
 import com.lsp.springbootmybatisdemo.entity.User;
-import org.junit.Test;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelUtils {
@@ -53,7 +51,7 @@ public class ExcelUtils {
         try {
             out = new FileOutputStream(path);
             ExcelWriter writer = EasyExcelFactory.getWriter(out);
-            Sheet sheet1 = new Sheet(1, 0, User.class);// 写仅有一个 Sheet 的 Excel 文件, 此场景较为通用
+            Sheet sheet1 = new Sheet(1, 0, Student.class);// 写仅有一个 Sheet 的 Excel 文件, 此场景较为通用
             sheet1.setSheetName("第一个sheet");// 第一个 sheet 名称
             // 写数据到 Writer 上下文中
             // 入参1: 数据库查询的数据list集合

@@ -1,6 +1,6 @@
 package com.lsp.springbootmybatisdemo.impl;
 
-import com.lsp.springbootmybatisdemo.entity.Authority;
+import com.lsp.springbootmybatisdemo.entity.Permission;
 import com.lsp.springbootmybatisdemo.entity.Role;
 import com.lsp.springbootmybatisdemo.entity.User;
 import com.lsp.springbootmybatisdemo.mapper.UserMapper;
@@ -24,6 +24,16 @@ public class UserImpl implements UserMapper {
     private UserMapper userMapper;
 
     @Override
+    public User findByUsername(String userName) {
+        return userMapper.findByUsername(userName);
+    }
+
+    @Override
+    public List<Permission> findPermissionByUsername(String userName) {
+        return userMapper.findPermissionByUsername(userName);
+    }
+
+    @Override
     public User findById(String id) {
         return userMapper.findById(id);
     }
@@ -35,7 +45,7 @@ public class UserImpl implements UserMapper {
 
     @Override
     public int deleteById(String id) {
-        return userMapper.deleteById(id);
+        return 0;
     }
 
     @Override
@@ -51,15 +61,5 @@ public class UserImpl implements UserMapper {
     @Override
     public int update(User user) {
         return userMapper.update(user);
-    }
-
-    @Override
-    public List<Authority> selectAllAuthorities(String id) {
-        return userMapper.selectAllAuthorities(id);
-    }
-
-    @Override
-    public List<Role> selectAllRoles(String id) {
-        return userMapper.selectAllRoles(id);
     }
 }
