@@ -47,6 +47,11 @@ public class UserController {
         return "index";
     }
 
+    @RequestMapping(value = "addUser")
+    public String addUser(){
+        return "user/addUser";
+    }
+
     @RequestMapping(value = "save")
     public String save(@RequestParam Map<String, Object> map) throws Exception {
         User user = (User) ReflectUtils.mapToJavaObject(User.class, map);

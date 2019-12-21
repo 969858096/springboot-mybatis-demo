@@ -12,6 +12,12 @@ public class OrderController {
 		return "index";
 	}
 
+	// 自定义登陆页面
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+
 	@RequestMapping("/failure")
 	public String failure() {
 		return "failure";
@@ -42,10 +48,5 @@ public class OrderController {
 		return "deleteOrder";
 	}
 
-	// 自定义登陆页面
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
 
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .out{
+        padding-top: 300px;
+        padding-left: 500px;
+    }
+</style>
+<script src="js/jquery-3.4.1.min.js" type="application/javascript"></script>
+<script>
+    console.log(111);
+    //发送表单ajax请求
+    $('#submit').on('click',function(){
+        $.ajax({
+            url:"user/save1",
+            type:"POST",
+            data:JSON.stringify($('#form1').serializeObject()),
+            contentType:"application/json",  //缺失会出现URL编码，无法转成json对象
+            success:function(){
+                alert("成功");
+            }
+        });
+    });
+</script>
+<body>
+
+<div class="out">
+    <h1>添加用户</h1>
+    <form id="form1" action="/user/save" method="post">
+        <input type="hidden" name="id"> <br>
+        姓名：<input type="text" name="realname"> <br>
+        用户名：<input type="text" name="username"> <br>
+        密码：<input type="password" name="password"> <br>
+        创建日期：<input type="text" name="createDate"> <br>
+        是否激活：<input type="radio" name="enabled" checked="checked" value="1">是<input type="radio" name="enabled"  value="0">否 <br>
+        是否激活：<input type="radio" name="accountNonExpired" checked="checked" value="1">是<input type="radio" name="accountNonExpired"  value="0">否 <br>
+        是否激活：<input type="radio" name="accountNonLocked" checked="checked" value="1">是<input type="radio" name="accountNonLocked"  value="0">否 <br>
+        是否激活：<input type="radio" name="credentialsNonExpired" checked="checked" value="1">是<input type="radio" name="credentialsNonExpired"  value="0">否 <br>
+        <input type="submit" value="添加" id="submit">
+    </form>
+    <!--<button id="submit" value="提交"></button>-->
+</div>
+</body>
+</html>

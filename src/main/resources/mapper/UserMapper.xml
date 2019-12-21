@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lsp.springbootmybatisdemo.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.lsp.springbootmybatisdemo.entity.User">
-        <id column="id" property="id" jdbcType="VARCHAR"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="age" property="age" jdbcType="BIGINT"/>
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="BIGINT"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="createDate" property="createDate" jdbcType="DATE"/>
+        <result column="lastLoginTime" property="lastLoginTime" jdbcType="DATE"/>
+        <result column="enabled" property="enabled" jdbcType="BIGINT"/>
+        <result column="accountNonExpired" property="accountNonExpired" jdbcType="BIGINT"/>
+        <result column="accountNonLocked" property="accountNonLocked" jdbcType="BIGINT"/>
+        <result column="credentialsNonExpired" property="credentialsNonExpired" jdbcType="BIGINT"/>
     </resultMap>
-
-    <resultMap type="com.lsp.springbootmybatisdemo.entity.Role" id="RoleMap">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <collection property="authorityList" column="id" javaType="list" select="selectAllAuthorities"></collection>
-    </resultMap>
-
 
     <sql id="Base_Column_List">
         *
@@ -21,30 +21,34 @@
     <select id="getAll" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM user
+        FROM sys_user
     </select>
 
     <insert id="add" parameterType="com.lsp.springbootmybatisdemo.entity.User" useGeneratedKeys="true" keyProperty="id">
-        /*生成UUID*/
+        <!--/*生成UUID*/
         <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
             select REPLACE(UUID(),'-','')
-        </selectKey>
+        </selectKey>-->
         INSERT INTO
-        user
-        (id, name, age,userName,passWord,phoneNum)
+        sys_user
+        (id, username, realname,password,createDate,lastLoginTime,enabled,accountNonExpired,accountNonLocked,credentialsNonExpired)
         VALUES
-        (#{id},#{name},#{age},#{userName},#{passWord},#{phoneNum})
+        (#{id},#{username},#{realname},#{password},#{createDate},#{lastLoginTime},#{enabled},#{accountNonExpired},#{accountNonLocked},#{credentialsNonExpired})
     </insert>
 
     <update id="update" parameterType="com.lsp.springbootmybatisdemo.entity.User">
         UPDATE
-        user
+        sys_user
         SET
-        <if test="name != null">name = #{name},</if>
-        <if test="age != null">age = #{age},</if>
-        <if test="userName != null">userName = #{userName},</if>
-        <if test="passWord != null">passWord = #{passWord},</if>
-        <if test="phoneNum != null">phoneNum = #{phoneNum}</if>
+        <if test="username != null">username = #{username},</if>
+        <if test="realname != null">realname = #{realname},</if>
+        <if test="password != null">password = #{password},</if>
+        <if test="createDate != null">createDate = #{createDate},</if>
+        <if test="lastLoginTime != null">lastLoginTime = #{lastLoginTime},</if>
+        <if test="enabled != null">enabled = #{enabled},</if>
+        <if test="accountNonExpired != null">accountNonExpired = #{accountNonExpired},</if>
+        <if test="accountNonLocked != null">accountNonLocked = #{accountNonLocked},</if>
+        <if test="credentialsNonExpired != null">credentialsNonExpired = #{credentialsNonExpired}</if>
         WHERE
         id = #{id}
     </update>
