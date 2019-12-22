@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "addUser")
-    public String addUser(){
+    public String addUser() {
         return "user/addUser";
     }
 
@@ -67,7 +67,7 @@ public class UserController {
     @RequestMapping(value = "save1")
     public String save1(@RequestBody String user) throws Exception {
         JSONObject jsonObject = JSONObject.parseObject(user);
-        User user1 = JSON.toJavaObject(jsonObject,User.class);
+        User user1 = JSON.toJavaObject(jsonObject, User.class);
         if (user != null) {
             userMapper.add(user1);
             return "success";
@@ -83,8 +83,11 @@ public class UserController {
 
     @RequestMapping("/excel")
     public String excel() {
+
         return "excel";
     }
 
 }
+
+
 
