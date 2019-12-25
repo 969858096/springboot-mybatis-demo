@@ -53,6 +53,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "save")
+    @ResponseBody
     public String save(@RequestParam Map<String, Object> map) throws Exception {
         User user = (User) ReflectUtils.mapToJavaObject(User.class, map);
         int flag;

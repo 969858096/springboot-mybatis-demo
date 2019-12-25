@@ -42,10 +42,13 @@ public class ReflectUtils<T> {
             Method set = clazz.getMethod(method,paramType);
             Object value = map.get(fieldName);
             if (STRING_INDEX .equals(StrParamType)){
-                set.invoke(o,value.toString());
+                set.invoke(o,new Integer(0));
             }
             if (INTEGER_INDEX .equals(StrParamType)){
-                set.invoke(o, Integer.valueOf(value.toString()));
+                if ("".equalsIgnoreCase(value.toString())){
+                    set.invoke(0,0);
+                }
+                set.invoke(o, new Integer(value.toString()));
             }
         }
         return o;
