@@ -184,8 +184,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
-    </dependencies>
 
+        <!--引入disruptor依赖-->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+    </dependencies>
 
 
     <build>

@@ -1,6 +1,7 @@
 package com.lsp.springbootmybatisdemo.test.thread.并发队列;
 
 
+import java.util.TreeSet;
 import java.util.concurrent.*;
 
 /**
@@ -15,6 +16,8 @@ public class FutureAndCallable {
         Future submit = executorService.submit(new TaskCallable());
         Object o = submit.get();
         System.out.println("result="+o);
+
+
     }
 }
 
