@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
  * @program: springboot-mybatis-demo
@@ -77,6 +78,7 @@ public class Demo2 implements Callable {
 
         t1.start();
         t2.start();
+
     }
 
 }
