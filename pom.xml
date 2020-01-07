@@ -185,12 +185,25 @@
             </exclusions>
         </dependency>
 
-        <!--引入disruptor依赖-->
+        <!--引入disruptor依赖：第三方并发框架-->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>3.2.1</version>
         </dependency>
+
+        <!--引入JNA依赖-->
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jna</groupId>
+            <artifactId>platform</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
 
 
