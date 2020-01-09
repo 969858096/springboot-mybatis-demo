@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 @Configuration
 public class DefaultConfig {
-    @EventListener({ApplicationReadyEvent.class})
+    /*@EventListener({ApplicationReadyEvent.class})
     void applicationReadyEvent() {
         System.out.println("应用已经准备就绪 ... 启动浏览器");
         String url = "http://localhost:8888/login";
@@ -24,5 +24,5 @@ public class DefaultConfig {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

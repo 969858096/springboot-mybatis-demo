@@ -68,6 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }
         authorizeRequests.antMatchers("/login").permitAll()//允许所有请求请求该接口
                         .antMatchers("/failure").permitAll()//允许所有请求请求该接口
+                        .antMatchers("/mq/test").permitAll()//允许所有请求请求该接口
                         .antMatchers("/**").fullyAuthenticated().and()//拦截所有请求
                         .formLogin().loginPage("/login")//自定义登陆页面
                         .successHandler(successHandler).failureHandler(failureHandler).and()//登陆成功 登陆失败跳转
