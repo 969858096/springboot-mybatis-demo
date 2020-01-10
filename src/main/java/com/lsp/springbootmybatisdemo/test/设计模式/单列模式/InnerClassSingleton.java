@@ -8,19 +8,16 @@ package com.lsp.springbootmybatisdemo.test.设计模式.单列模式;
  */
 public class InnerClassSingleton {
 
-    private InnerClassSingleton(){
+    private InnerClassSingleton(){ }
 
+    public static class SingletonInstance{
+        private static final InnerClassSingleton innerClassSingleton = new InnerClassSingleton();
     }
     //方法没有同步，效率相对较高
     public static InnerClassSingleton getInstance(){
         System.out.println("getInstance");
         return SingletonInstance.innerClassSingleton;
     }
-
-    public static class SingletonInstance{
-        private static final InnerClassSingleton innerClassSingleton = new InnerClassSingleton();
-    }
-
 
 
     public static void main(String[] args) {

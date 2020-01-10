@@ -26,10 +26,6 @@ public class TestTopic {
 
     @Test
     public void test() {
-        JSONObject json = new JSONObject();
-        System.out.println(publish);
-        for (int i = 0; i < 10; i++) {
-            publish.publish("topic.test", "Topic Message " + json.put("msg","发布信息"+i).toString());
-        }
+        publish.publish("topic.test", "Topic Message " + "发送的信息");
     }
 }

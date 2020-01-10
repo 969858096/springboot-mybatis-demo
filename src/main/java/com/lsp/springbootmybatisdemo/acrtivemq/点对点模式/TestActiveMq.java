@@ -1,10 +1,8 @@
-package com.lsp.springbootmybatisdemo.acrtivemq;
+package com.lsp.springbootmybatisdemo.acrtivemq.点对点模式;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,15 +23,15 @@ public class TestActiveMq {
 
 
     @Test
-    public void contextLoads(){
+    public void contextLoads() {
         JSONObject json = new JSONObject();
-        int i= 0;
-        while (i < 150){
+        int i = 0;
+        while (i < 150) {
             try {
                 Thread.sleep(2000);
-                producerService.send("message->"+i,"name.msg");
-                json.put("msg","测试发送信息"+i);
-                producerService.send(json.toString(),"test.msg");
+                producerService.send("message->" + i, "name.msg");
+                json.put("msg", "测试发送信息" + i);
+                producerService.send(json.toString(), "test.msg");
                 i++;
             } catch (Exception e) {
                 e.printStackTrace();

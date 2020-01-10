@@ -1,9 +1,7 @@
 package com.lsp.springbootmybatisdemo.acrtivemq.消息发布订阅;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 
 /**
@@ -17,14 +15,17 @@ import org.springframework.stereotype.Service;
 public class Subscriber {
 
     @JmsListener(destination = "topic.test",containerFactory = "myJmsContainerFactory")
-    public void subscribe(String text){
-        System.out.println("==========收到订阅信息"+text);
+    public void subscribe(String message){
+        System.out.println("《topic.test1》==========接收信息----》"+message);
     }
 
     @JmsListener(destination = "topic.test",containerFactory = "myJmsContainerFactory")
     public void receive1(String message) {
-        System.err.println("Topic.Subscribe.receive1接收消息：" + message);
+        System.out.println("《topic.test2》==========接收信息----》"+message);
     }
 
-
+    @JmsListener(destination = "topic.test",containerFactory = "myJmsContainerFactory")
+    public void receive2(String message) {
+        System.out.println("《topic.test3》==========接收信息----》"+message);
+    }
 }

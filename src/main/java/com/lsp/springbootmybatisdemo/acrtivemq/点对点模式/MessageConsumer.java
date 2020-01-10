@@ -1,4 +1,4 @@
-package com.lsp.springbootmybatisdemo.acrtivemq;
+package com.lsp.springbootmybatisdemo.acrtivemq.点对点模式;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

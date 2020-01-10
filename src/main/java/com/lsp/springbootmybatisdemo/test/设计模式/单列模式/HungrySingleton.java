@@ -7,12 +7,9 @@ package com.lsp.springbootmybatisdemo.test.设计模式.单列模式;
  * @Date: 2020/1/9 22:03
  */
 public class HungrySingleton {
-
     private static final HungrySingleton hungrySingleton = new HungrySingleton();
-
-    //将构造函数私有化
+    //将构造函数私有化,防止外部创建对象
     private HungrySingleton(){
-
     }
 
     //对外提供创建实例的方法
@@ -23,7 +20,7 @@ public class HungrySingleton {
     public static void main(String[] args) {
         HungrySingleton instance1 = HungrySingleton.getInstance();
         HungrySingleton instance2 = HungrySingleton.getInstance();
-        System.out.println(instance1 == instance2);
+        System.out.println(instance1 == instance2);//结果返回true
     }
 
 }

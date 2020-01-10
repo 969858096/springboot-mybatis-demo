@@ -1,11 +1,10 @@
-package com.lsp.springbootmybatisdemo.acrtivemq;
+package com.lsp.springbootmybatisdemo.acrtivemq.点对点模式;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Component;
-
 import javax.jms.Destination;
 
 /**
@@ -17,10 +16,8 @@ import javax.jms.Destination;
  **/
 @Component
 public class MessageProducer {
-
     @Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
-
     //发送消息
     public boolean sendMessage(final String message,String destinationName){
         try {

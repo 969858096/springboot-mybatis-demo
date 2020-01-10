@@ -1,4 +1,4 @@
-package com.lsp.springbootmybatisdemo.acrtivemq;
+package com.lsp.springbootmybatisdemo.acrtivemq.点对点模式;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,6 +3,7 @@ package com.lsp.springbootmybatisdemo.acrtivemq.消息发布订阅;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @program: springboot-mybatis-demo
@@ -19,7 +20,8 @@ public class TopicController {
     private Publisher publish;
 
     @RequestMapping("test")
+    @ResponseBody
     public void Test(){
-        publish.publish("topic.test","发送消息+++++++++++++++++++++");
+        publish.publish("topic.test","伊美大战即将开始，敬请关注！！");
     }
 }

@@ -12,7 +12,6 @@ public class LazySingleton {
     private LazySingleton(){
 
     }
-
     //为保证线程安全，所以加锁，所以会影响效率
     public static synchronized LazySingleton getInstance(){
         if (lazySingleton == null){
@@ -20,7 +19,6 @@ public class LazySingleton {
         }
         return lazySingleton;
     }
-
 
     public static void main(String[] args) {
         LazySingleton lazySingleton1 = LazySingleton.getInstance();
