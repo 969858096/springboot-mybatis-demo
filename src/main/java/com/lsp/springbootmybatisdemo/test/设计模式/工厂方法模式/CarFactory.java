@@ -11,7 +11,5 @@ import org.apache.commons.lang.StringUtils;
  */
 
 public interface CarFactory {
-
       Car makeCar(String carName);
-
 }

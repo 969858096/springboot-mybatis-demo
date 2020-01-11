@@ -15,11 +15,11 @@ public class CarFactory {
     public static Car makeCar(String carName) {
         Car car = null;
         if (StringUtils.isNotBlank(carName)) {
-            if (carName.equals("比亚迪")){
+            if (carName.equals("比亚迪")) {
                 car = new BYD();
-            }else if (carName.equals("吉利")){
+            } else if (carName.equals("吉利")) {
                 car = new JiLiCar();
-            }else {
+            } else {
                 log.info("您所选择的车不存在！请重新选择");
             }
         } else {
