@@ -16,8 +16,6 @@ public abstract class MsgTemplate {
         endLog();//结束日志
     }
 
-
-
     private void beginLog() {
         log.info("开始日志");
     }
