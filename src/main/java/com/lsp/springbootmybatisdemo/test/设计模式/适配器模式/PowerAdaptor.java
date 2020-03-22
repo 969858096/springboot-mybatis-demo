@@ -6,6 +6,7 @@ package com.lsp.springbootmybatisdemo.test.设计模式.适配器模式;
  * @AuthOr: lsp
  * @Date: 2020/1/12 14:14
  */
+// 电源适配器，转换电源
 public class PowerAdaptor implements JP110V_interface {
 
     private CN220V_interface cn220V_interface;

@@ -1,7 +1,6 @@
 package com.lsp.springbootmybatisdemo.test.collection;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @FileName: ArrayListDemo
@@ -11,7 +10,22 @@ import java.util.List;
  */
 public class ArrayListDemo {
     public static void main(String[] args) {
-        List l = new ArrayList();
-        List l1 = new ArrayList(10);
+
+        boolean a = false;
+        boolean b = false;
+
+        char a1 = 'a';
+        char a2 = 'b';
+
+        short a3 = 3;
+        short a4 = 4;
+
+        byte b1 = 2;
+        byte b2 = 2;
+
+        Character f = 2;
+        Character f1 = 2;
+        System.out.println(f.equals(f1));
+
     }
 }

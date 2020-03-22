@@ -6,6 +6,7 @@ package com.lsp.springbootmybatisdemo.test.设计模式.策略模式;
  * @AuthOr: lsp
  * @Date: 2020/1/12 19:02
  */
+
 abstract class Strategy {
     public abstract void algorithmInterface();
 }

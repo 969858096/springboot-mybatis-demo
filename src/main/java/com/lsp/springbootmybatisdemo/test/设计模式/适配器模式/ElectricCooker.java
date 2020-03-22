@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
  * @AuthOr: lsp
  * @Date: 2020/1/12 14:10
  */
+//电饭煲以及代码测试
 @Slf4j
 public class ElectricCooker {
 
